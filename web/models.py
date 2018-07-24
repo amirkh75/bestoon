@@ -10,14 +10,17 @@ class Expensee(models.Model):
     date = models.DateTimeField(auto_now_add=True)
     amount = models.BigIntegerField(default=0)
     user = models.ForeignKey(User)
-    amount1 = models.BigIntegerField(default=0)  
+    amount1 = models.BigIntegerField(default=0)
     amount3 = models.BigIntegerField(default=0)
+    def __unicode__(self):
+        return self.title
 
 class income(models.Model):
     title = models.CharField(max_length=255)
-    date = models.DateTimeField(auto_now_add=True)
+    date = models.DateTimeField()#auto_now_add=True
     amount = models.BigIntegerField(default=0)
     user = models.ForeignKey(User)
-    amount1 = models.BigIntegerField(default=0)  
-    amount3 = models.BigIntegerField(default=0)
-
+    #amount1 = models.BigIntegerField(default=0)
+    #amount3 = models.BigIntegerField(default=0)
+    def __unicode__(self):
+        return self.title
