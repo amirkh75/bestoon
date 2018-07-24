@@ -13,3 +13,11 @@ class Expensee(models.Model):
     amount1 = models.BigIntegerField(default=0)  
     amount3 = models.BigIntegerField(default=0)
 
+class income(models.Model):
+    title = models.CharField(max_length=255)
+    date = models.DateTimeField(auto_now_add=True)
+    amount = models.BigIntegerField(default=0)
+    user = models.ForeignKey(User)
+    amount1 = models.BigIntegerField(default=0)  
+    amount3 = models.BigIntegerField(default=0)
+

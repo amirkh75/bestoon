@@ -2,8 +2,9 @@
 from __future__ import unicode_literals
 
 from django.contrib import admin
-from .models import Expensee
+from .models import Expensee , income
 
 
 
 admin.site.register(Expensee)
+admin.site.register(income)
