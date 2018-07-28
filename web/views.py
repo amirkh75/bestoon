@@ -5,9 +5,25 @@ from django.http import JsonResponse
 from json import JSONEncoder
 from datetime import datetime
 from django.views.decorators.csrf import csrf_exempt
-from web.models import User , Token , Expensee , income
+from web.models import User , Token , Expensee ,income
+
+
 
 @csrf_exempt
+def submit_income(request):
+    """user submits and income"""
+#TODO:
+    now = datetime.now( )
+    this_token = request.POST['token']
+    this_user = User.objects.filter(token__token = this_token).get()
+    income.objects.create(user = this_user,amount=request.POST['amount'],
+    title = request.POST['title'], date=now)
+    print request.POST
+    return JsonResponse({
+        'status' : 'ok'
+        }, encoder=JSONEncoder)
+
+#@csrf_exempt
 def submit_expense(request):
     """user submits and expense"""
 #TODO:
